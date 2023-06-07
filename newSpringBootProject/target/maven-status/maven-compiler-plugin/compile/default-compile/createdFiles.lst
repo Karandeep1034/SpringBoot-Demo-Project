@@ -1,0 +1,3 @@
+com\example\newSpringBootProject\NewSpringBootProjectApplication.class
+com\example\newSpringBootProject\repository\TaskRepository.class
+com\example\newSpringBootProject\model\Task.class
