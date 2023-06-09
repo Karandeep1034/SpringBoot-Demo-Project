@@ -1,6 +1,6 @@
 package com.example.newSpringBootProject.controller;
 
-import com.example.newSpringBootProject.model.Task;
+import com.example.newSpringBootProject.dto.TaskDTO;
 import com.example.newSpringBootProject.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,29 +16,29 @@ public class TaskController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Task createTask(@RequestBody Task task){
+    public TaskDTO createTask(@RequestBody TaskDTO task){
         return service.addTask(task);
     }
     @GetMapping
-    public List<Task> getTask(){
+    public List<TaskDTO> getTask(){
         return service.findAllTasks();
     }
 
     @GetMapping("/{taskId}")
-    public Task getTasks(@PathVariable String taskId){
+    public TaskDTO getTasks(@PathVariable String taskId){
         return service.findTaskById(taskId);
     }
     @GetMapping("/severity/{severity}")
-    public List<Task> findTaskBySeverity(@PathVariable int severity){
+    public List<TaskDTO> findTaskBySeverity(@PathVariable int severity){
         return service.getTaskBySeverity(severity);
     }
     @GetMapping("/assignee/{assignee}")
-    public List<Task> getTaskByAssignee(@PathVariable String assignee){
+    public List<TaskDTO> getTaskByAssignee(@PathVariable String assignee){
         return service.getTasksByAssignee(assignee);
     }
 
     @PutMapping
-    public Task modifyTask(@RequestBody Task task){
+    public TaskDTO modifyTask(@RequestBody TaskDTO task){
         return service.updateTask(task);
     }
 
