@@ -1,6 +1,7 @@
 package com.example.newSpringBootProject.service;
 
 import com.example.newSpringBootProject.dto.TaskDTO;
+import com.example.newSpringBootProject.exception.TaskException;
 import com.example.newSpringBootProject.model.Task;
 import com.example.newSpringBootProject.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,8 @@ public class TaskService {
     }
 
     public TaskDTO findTaskById(String taskId){
-        Task TaskObj = repository.findById(taskId).get();
+        Task TaskObj = repository.findById(taskId)
+                .orElseThrow(() -> new TaskException("task not found"));
         return convertToDto(TaskObj);
     }
 

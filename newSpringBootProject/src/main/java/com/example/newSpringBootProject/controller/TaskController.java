@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class TaskController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TaskDTO createTask(@RequestBody TaskDTO task){
+    public TaskDTO createTask(@RequestBody @Valid TaskDTO task){
         return service.addTask(task);
     }
     @GetMapping
@@ -33,7 +34,7 @@ public class TaskController {
         return service.getTaskBySeverity(severity);
     }
     @GetMapping("/assignee/{assignee}")
-    public List<TaskDTO> getTaskByAssignee(@PathVariable String assignee){
+    public List<TaskDTO> getTaskByAssignee(@PathVariable @Valid String assignee){
         return service.getTasksByAssignee(assignee);
     }
 
