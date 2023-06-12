@@ -1,3 +1,6 @@
-com\example\newSpringBootProject\NewSpringBootProjectApplication.class
-com\example\newSpringBootProject\repository\TaskRepository.class
 com\example\newSpringBootProject\model\Task.class
+com\example\newSpringBootProject\controller\TaskController.class
+com\example\newSpringBootProject\NewSpringBootProjectApplication.class
+com\example\newSpringBootProject\service\TaskService.class
+com\example\newSpringBootProject\dto\TaskDTO.class
+com\example\newSpringBootProject\repository\TaskRepository.class
